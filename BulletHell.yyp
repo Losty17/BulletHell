@@ -23,6 +23,7 @@
     {"id":{"name":"move_state","path":"scripts/move_state/move_state.yy",},"order":1,},
     {"id":{"name":"instance_create","path":"scripts/instance_create/instance_create.yy",},"order":2,},
     {"id":{"name":"init_bullet_system","path":"scripts/init_bullet_system/init_bullet_system.yy",},"order":3,},
+    {"id":{"name":"bullet_data","path":"scripts/bullet_data/bullet_data.yy",},"order":7,},
     {"id":{"name":"create_transition","path":"scripts/create_transition/create_transition.yy",},"order":4,},
     {"id":{"name":"create_dialogue","path":"scripts/create_dialogue/create_dialogue.yy",},"order":5,},
     {"id":{"name":"bullet_normal","path":"scripts/bullet_normal/bullet_normal.yy",},"order":0,},

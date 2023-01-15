@@ -1,31 +1,39 @@
-function bullet_normal(
-	speed = 4,
-	acceleration = 0,
-	amount = 1,
-	offset = 0,
-	range = [0, 360],
-	min_speed = 1,
-	max_speed = 9999,
-	aiming = false,
-	target = undefined
-) {
-	if (amount == 0) exit;
-	var start_range = range[0];
-	var end_range = range[1];
+function bullet_normal(data)
+{
+	if (data.amount == 0) exit;
 
-	var dir = start_range <= end_range 
-		? (end_range - start_range) / amount
-		: (start_range - end_range) / amount;
+	var dir = data.start_range <= data.end_range 
+		? (data.end_range - data.start_range) / data.amount
+		: (data.start_range - data.end_range) / data.amount;
 
-	for (var i = start_range; i <= end_range; i += dir)
+	var bullets = [];
+	for (var i = data.start_range; i <= data.end_range; i += dir)
 	{
-		var b = instance_create_layer(x, y, "Instances", oBullet);
-		b.direction = aiming ? point_direction(x, y, target.x, target.y) : i; 
-	
-		b.speed = speed;
-		b.acceleration = acceleration;
-		b.offset = offset;
-		b.max_speed = max_speed;
-		b.min_speed = min_speed;
+		var b = instance_create_layer(x, y, "Instances", data.object);
+		
+		b.direction    = data.aiming ? point_direction(x, y, data.target.x, data.target.y) : i; 
+		b.image_blend  = data.color;
+		b.image_xscale = data.scale;
+		b.image_yscale = data.scale;
+		
+		b.speed		   = data.velocity;
+		b.acceleration = data.acceleration;
+		b.offset	   = data.offset;
+		b.max_speed	   = data.max_speed;
+		b.min_speed    = data.min_speed;
+		
+		array_push(bullets, b);
 	}
+	
+	if (data.callback != undefined)
+		time_source_start(time_source_create(
+			time_source_global,
+			data.callback_wait_time,
+			time_source_units_seconds,
+			function(data, bullets) {
+				for (var i = 0; i < array_length(bullets); i++)
+					if (instance_exists(bullets[i])) data.callback(bullets[i], data.callback_parameters);
+			},
+			[data, bullets]
+		));
 }
