@@ -26,6 +26,4 @@ function move_state() {
 
 	y += vSpd
 	x += hSpd
-
-
 }

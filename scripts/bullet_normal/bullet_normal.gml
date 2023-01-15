@@ -4,8 +4,8 @@ function bullet_normal(
 	amount = 1,
 	offset = 0,
 	range = [0, 360],
-	min_speed = undefined,
-	max_speed = undefined,
+	min_speed = 1,
+	max_speed = 9999,
 	aiming = false,
 	target = undefined
 ) {
@@ -25,7 +25,7 @@ function bullet_normal(
 		b.speed = speed;
 		b.acceleration = acceleration;
 		b.offset = offset;
-		b.maxSpeed = max_speed;
-		b.minSpeed = min_speed;
+		b.max_speed = max_speed;
+		b.min_speed = min_speed;
 	}
 }

@@ -4,8 +4,8 @@ function bullet_spiral(
 	amount = 1,
 	offset = 0,
 	spiral_speed = 1,
-	min_speed = undefined,
-	max_speed = undefined
+	min_speed = 1,
+	max_speed = 9999
 ) {
 	for(var i = 0; i < amount; i += 1)
 	{
@@ -14,8 +14,8 @@ function bullet_spiral(
 		b.speed = speed;
 		b.acceleration  = acceleration;
 		b.offset = offset
-		b.minSpeed = min_speed;
-		b.maxSpeed = max_speed;
+		b.min_speed = min_speed;
+		b.max_speed = max_speed;
 			
 		bulletDir += (360 / amount) + spiral_speed;
 	}
