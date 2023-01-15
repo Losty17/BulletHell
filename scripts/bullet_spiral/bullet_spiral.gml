@@ -1,28 +1,22 @@
-/// @desc bullet_spiral(speed, spiral_speed, acceleration, amount, offset)
-/// @param speed
-/// @param spiral_speed
-/// @param acceleration
-/// @param amount
-/// @param offset
-function bullet_spiral(argument0, argument1, argument2, argument3, argument4) {
-	   
-	spd		     = argument0
-	spiral_speed = argument1
-	accel		 = argument2
-	amount		 = argument3
-	offset		 = argument4
-
+function bullet_spiral(
+	speed = 4,
+	acceleration = 0,
+	amount = 1,
+	offset = 0,
+	spiral_speed = 1,
+	min_speed = undefined,
+	max_speed = undefined
+) {
 	for(var i = 0; i < amount; i += 1)
 	{
 		b = instance_create_layer(x, y, "Instances", oBullet)
-		b.direction += bulletDir
-		b.speed = spd
-		b.bulletAccel  = accel
-		b.bulletOffset = offset
+		b.direction += bulletDir;
+		b.speed = speed;
+		b.acceleration  = acceleration;
+		b.offset = offset
+		b.minSpeed = min_speed;
+		b.maxSpeed = max_speed;
 			
-		bulletDir += 360 / amount
-		bulletDir += spiral_speed
+		bulletDir += (360 / amount) + spiral_speed;
 	}
-
-
 }

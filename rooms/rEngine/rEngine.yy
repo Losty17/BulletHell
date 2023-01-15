@@ -1,7 +1,7 @@
 {
   "resourceType": "GMRoom",
   "resourceVersion": "1.0",
-  "name": "rTest03",
+  "name": "rEngine",
   "isDnd": false,
   "volume": 1.0,
   "parentRoom": null,
@@ -27,9 +27,9 @@
   "creationCodeFile": "",
   "inheritCode": false,
   "instanceCreationOrder": [
-    {"name":"inst_2724844C","path":"rooms/rTest03/rTest03.yy",},
-    {"name":"inst_73F41C9D","path":"rooms/rTest03/rTest03.yy",},
-    {"name":"inst_2C14CF22","path":"rooms/rTest03/rTest03.yy",},
+    {"name":"inst_2724844C","path":"rooms/rEngine/rEngine.yy",},
+    {"name":"inst_73F41C9D","path":"rooms/rEngine/rEngine.yy",},
+    {"name":"inst_2C14CF22","path":"rooms/rEngine/rEngine.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

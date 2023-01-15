@@ -1,7 +1,5 @@
 /// @description Fire bullets in da ho
-bulletType = bulletTypes[pointer]
-
-switch bulletType
+switch bulletTypes[pointer]
 {
 	case "NORMAL":
 		bullet_normal(
@@ -15,20 +13,16 @@ switch bulletType
 			bulletAiming,
 			oPlayerTemp
 		);
-		break
-
+		break;
 	case "SPIRAL":
-		for(var i = 0; i < bulletAmount; i += 1)
-		{
-			b = instance_create_layer(x, y, "Instances", oBullet)
-			b.direction += bulletDir
-			b.speed = bulletSpeed
-			bulletDir += 360 / bulletAmount
-			bulletDir += bulletSpiralSpeed
-			
-			b.bulletOffset = bulletOffset
-			b.bulletAccel = bulletAccel
-			b.bulletMinSpeed = bulletMinSpeed;
-			b.bulletMaxSpeed = bulletMaxSpeed;
-		}
+		bullet_spiral(
+			bulletSpeed,
+			bulletAccel,
+			bulletAmount,
+			bulletOffset,
+			bulletSpiralSpeed,
+			undefined,
+			undefined
+		);
+		break;
 }
