@@ -41,6 +41,7 @@
     {"id":{"name":"oMenu","path":"objects/oMenu/oMenu.yy",},"order":0,},
     {"id":{"name":"oTransition","path":"objects/oTransition/oTransition.yy",},"order":1,},
     {"id":{"name":"oBulletHandler","path":"objects/oBulletHandler/oBulletHandler.yy",},"order":0,},
+    {"id":{"name":"schedule_callback","path":"scripts/schedule_callback/schedule_callback.yy",},"order":8,},
     {"id":{"name":"oEngineInterface","path":"objects/oEngineInterface/oEngineInterface.yy",},"order":1,},
     {"id":{"name":"oDialogue","path":"objects/oDialogue/oDialogue.yy",},"order":6,},
     {"id":{"name":"rEngine","path":"rooms/rEngine/rEngine.yy",},"order":0,},

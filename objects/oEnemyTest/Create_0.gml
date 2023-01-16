@@ -1,4 +1,7 @@
-/// @description Insert description here
-// You can write your code in this editor
-// init_bullet_system()
-alarm[1] = 1
+/// @description Trying out different ways of creating bullet patterns with the bullet_normal script
+dir = 0;
+
+time = 0
+rotate = 45
+
+alarm[1] = room_speed * 2;

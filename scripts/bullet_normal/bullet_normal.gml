@@ -17,6 +17,7 @@ function bullet_normal(data)
 		b.image_blend  = data.color;
 		b.image_xscale = data.scale;
 		b.image_yscale = data.scale;
+		b.image_alpha  = data.alpha;
 		
 		b.speed		   = data.velocity;
 		b.acceleration = data.acceleration;
@@ -27,15 +28,32 @@ function bullet_normal(data)
 		array_push(bullets, b);
 	}
 	
-	if (data.callback != undefined)
-		time_source_start(time_source_create(
-			time_source_global,
-			data.callback_wait_time,
-			time_source_units_seconds,
-			function(data, bullets) {
-				for (var i = 0; i < array_length(bullets); i++)
-					if (instance_exists(bullets[i])) data.callback(bullets[i], data.callback_parameters);
-			},
-			[data, bullets]
-		));
+	var callbacks = array_length(data.callbacks);
+	if (callbacks > 0)
+	{
+		for (var i = 0; i < callbacks; i++)
+		{
+			var callback = data.callbacks[i];
+			schedule_function(
+				callback.delay,
+				callback_for_bullets,
+				[callback, bullets]
+			)
+		}	
+	}
+}
+
+function callback_for_bullets(callback, bullets)
+{
+	for (var i = 0; i < array_length(bullets); i++)
+	{
+		if (instance_exists(bullets[i]))
+		{
+			var parameters = variable_struct_exists(callback, "parameters") 
+						   ? callback.parameters
+						   : [];
+						   
+			callback.callback(bullets[i], parameters);
+		}
+	}
 }

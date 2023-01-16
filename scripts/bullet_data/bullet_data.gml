@@ -14,10 +14,13 @@ function bullet_data(payload = {}) constructor
 	target		 = undefined;	// Target to bem aimed at
 	color		 = c_white;		// Tint color of the projectile
 	scale		 = 1;			// How big will the projectile be
+	alpha		 = 1;			// Projectile transparency
 	object		 = oBullet;		// Source object for the projectile
-	callback	 = undefined;	// Function to be executed after some time of the projectile on screen
-	callback_wait_time  = 0;	// Wait time for the execution of the function
-	callback_parameters = [];	// Array of parameters for the function
+
+	callbacks	 = [];			// Callback array, with a 'callback' parameter that must be 
+								// a function, a 'delay' parameter that must be the number of seconds
+								// to wait before calling the callback, and an optional parameter 'parameters'
+								// that should be an array of any object to provide for the function call
 
 	var keys = variable_struct_get_names(payload);
 	for (var i = 0; i < array_length(keys); i++)
