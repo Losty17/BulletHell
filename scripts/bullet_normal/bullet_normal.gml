@@ -5,11 +5,13 @@ function bullet_normal(data)
 	var dir = data.start_range <= data.end_range 
 		? (data.end_range - data.start_range) / data.amount
 		: (data.start_range - data.end_range) / data.amount;
-
+	
+	dir = dir == 0 ? 1 : dir;
+	
 	var bullets = [];
 	for (var i = data.start_range; i <= data.end_range; i += dir)
 	{
-		var b = instance_create_layer(x, y, "Instances", data.object);
+		var b = instance_create_layer(data.x, data.y, "Instances", data.object);
 		
 		b.direction    = data.aiming ? point_direction(x, y, data.target.x, data.target.y) : i; 
 		b.image_blend  = data.color;

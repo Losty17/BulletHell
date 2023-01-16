@@ -1,5 +1,7 @@
 function bullet_data(payload = {}) constructor
 {
+	x = other.x;
+	y = other.y;
 	velocity     = 4;			// Starting speed of the projectile
 	acceleration = 0;			// Acceleration modifier for every frame
 	amount		 = 1;			// Amount of projectiles to create in a frame
