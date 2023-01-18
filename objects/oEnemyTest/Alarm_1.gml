@@ -1,4 +1,5 @@
-/// @description Insert description
+/// @description Circle pattern with multiple bullet spawn on callback
+randomize();
 var radius	 = 120;
 var offset_x = room_width / 2;
 var offset_y = room_height / 2;
@@ -32,9 +33,27 @@ for (var angle = 0; angle < 360; angle += 360 / amount)
 					bullet.image_blend = c_red;
 					bullet.direction = point_direction(bullet.x, bullet.y, oPlayerTemp.x, oPlayerTemp.y);
 					bullet.acceleration = .02;
+					
+					x = bullet.x
+					y = bullet.y
+					
+					for (var i = 0; i < 360; i += 360 / 6)
+					{
+						var range = random_range(-25, 25);
+						bullet_normal(new bullet_data({
+							velocity: 4,
+							start_range: range + i,
+							end_range: range + i,
+							scale: .9,
+							acceleration: -.15,
+							min_speed: -2,
+						}));
+					}
 				},
 				delay: 2
 			}
 		]
 	}));
 }
+
+alarm[1] = room_speed * 7

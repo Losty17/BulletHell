@@ -7,3 +7,5 @@ if (min_speed != undefined && speed + acceleration >= min_speed) &&
 {
 	speed += acceleration	
 }
+
+image_angle += 5
